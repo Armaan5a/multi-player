@@ -24,8 +24,10 @@ class Form {
       this.button.hide()
 
         player.name = this.box.value()
-
+        
         playerCount+=1
+        player.index= playerCount
+        player.update()
         player.updateCount(playerCount)
                 this.hello.html("hello"+player.name)
         this.hello.position(130,160)

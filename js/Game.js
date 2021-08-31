@@ -34,5 +34,24 @@ play(){
     form.hide()
     textSize(30)
     text("hi",120,100)
+   player.getInfo()
+   console.log(allPlayers)
+   if(allPlayers!=undifined){
+       var ypos=130
+
+       for(var plr in allPlayers){
+           if(plr===player.index){
+               fill(red)
+           }
+        textSize(15)
+           text(allPlayers[plr].name+":"+allPlayers[plr].distance,120,ypos)
+           ypos+=30
+       }
+   }
+  
+    if(keyIsDown(UP_ARROW)){
+        player.distance += 50
+        player.update()
+    }
 }
 }

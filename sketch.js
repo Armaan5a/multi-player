@@ -2,7 +2,7 @@ var hypnoticBall, database;
 var position;
 var form,player,game
 var gameState=0
-var playerCount
+var playerCount,allPlayers
 
 function setup(){
   database = firebase.database();
