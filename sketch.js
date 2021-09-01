@@ -8,12 +8,14 @@ function setup(){
   database = firebase.database();
     
   game= new Game()
+
  game.getState()
   game.start()
 
 }
 
 function draw(){
+  background(255)
   if(playerCount===4){
   game.update(1);
   }
