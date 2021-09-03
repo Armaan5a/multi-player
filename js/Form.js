@@ -2,9 +2,10 @@ class Form {
     constructor(){
       this.button=createButton("play")
       this.title =createElement('h2')
-      this.box = createInput("Name")
+     // this.box = createInput("Name")
       this.hello = createElement("h1")
 
+      this.box= createInput("").attribute("placeholder","Name")
     }
 
   hide(){
@@ -16,9 +17,9 @@ class Form {
   display(){
 
     this.title.html("CAR RACING GAME")
-    this.title.position(130,0)
-   this.box.position(130,160)
- this.button.position(250,200)
+    this.title.position(width/2-50,0)
+   this.box.position(width/2-40,height/2-80)
+ this.button.position(width/2+30,height/2)
   this.button.mousePressed(()=>{
       this.box.hide()
       this.button.hide()
@@ -30,7 +31,7 @@ class Form {
         player.update()
         player.updateCount(playerCount)
                 this.hello.html("hello"+player.name)
-        this.hello.position(130,160)
+        this.hello.position(width/2-70,height/4)
 
 })
 
