@@ -34,9 +34,13 @@ async start(){
    }
 
    car1=createSprite(100,200)
+   car1.addImage(c1)
    car2=createSprite(200,200)
+   car2.addImage(c2)
    car3=createSprite(300,200)
+   car3.addImage(c3)
    car4=createSprite(400,200)
+   car4.addImage(c4)
 
    cars=[car1,car2,car3,car4]
 }
@@ -47,6 +51,8 @@ play(){
    player.getInfo()
   // console.log(allPlayers)
    background(230,130,330)
+    image(track,0,-height*4,width,height*5)
+  
    if(allPlayers!=undefined){
       // var ypos=130
        var x=0
@@ -63,7 +69,9 @@ play(){
         cars[index-1].y=y
 
         if(index === player.index){
-            cars[index-1].shapeColor="green"
+             fill("red")
+             ellipse(x,y,60,60)
+            //cars[index-1].shapeColor="green"
             camera.position.x=width/2
             camera.position.y= cars[index-1].y
         }
@@ -85,7 +93,16 @@ play(){
     if(keyIsDown(UP_ARROW)){
         player.distance += 50
         player.update()
+        console.log(player.distance)
+        if(player.distance>2500){
+            gameState=2     
+        }
     }
   drawSprites()
 }
+
+end(){
+    console.log("hi")
+}
+
 }   
