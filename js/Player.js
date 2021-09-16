@@ -4,6 +4,7 @@ class Player {
         this.index = null
         this.distance = 0
         this.name=null
+        this.rank=null
      }
 
 getCount(){
@@ -15,7 +16,8 @@ plcref.on('value',(data)=>{
 updateCount(count){
 
     database.ref('/').update({
-        playerCount:count
+        playerCount:count,
+        finishedPlayers:0
     })
 }
 
@@ -36,5 +38,19 @@ getInfo(){
     
     }
 
+getFP()
+{
+var finish = database.ref('finishedPlayers')
+     finish.on('value',(data)=>{
+          this.rank=data.val()
+     })
+}
+
+static updateFP(count)
+{
+    database.ref('/').update({
+      finishedPlayers:count
+    })
+}
 }
 

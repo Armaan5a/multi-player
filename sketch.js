@@ -11,6 +11,7 @@ function preload(){
   c3=loadImage("images/car3.png")
   c4=loadImage("images/car4.png")
   track=loadImage("images/track.jpg")
+  ground=loadImage("images/ground.png")
 }
 
 function setup(){
@@ -25,7 +26,7 @@ function setup(){
 }
 
 function draw(){
-  background(255)
+ // background(255)
   if(playerCount===4){
   game.update(1);
   }

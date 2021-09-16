@@ -46,14 +46,16 @@ async start(){
 }
 play(){
     form.hide()
-    textSize(30)
-    text("hi",120,100)
+   
    player.getInfo()
+   player.getFP()
+
   // console.log(allPlayers)
-   background(230,130,330)
-    image(track,0,-height*4,width,height*5)
+  
   
    if(allPlayers!=undefined){
+    background("white")
+    image(track,0,-height*4,width,height*5)
       // var ypos=130
        var x=0
        var y
@@ -75,9 +77,7 @@ play(){
             camera.position.x=width/2
             camera.position.y= cars[index-1].y
         }
-        else{
-            cars[index-1].shapeColor="white"
-        }
+        
        }    
         /*   if(plr==="player"+player.index)
                fill("red")
@@ -90,19 +90,24 @@ play(){
        } */ 
    }
   
-    if(keyIsDown(UP_ARROW)){
+    if(keyIsDown(UP_ARROW)&& player.index!==null){
         player.distance += 50
         player.update()
         console.log(player.distance)
-        if(player.distance>2500){
-            gameState=2     
-        }
     }
+        if(player.distance>2500){
+            gameState=2   
+              player.rank+=1
+              Player.updateFP(player.rank)
+              text("rank"+ player.rank,100,-2550)
+        }
+    
   drawSprites()
 }
 
 end(){
-    console.log("hi")
+    console.log("game ended")
+    console.log("rank"+ player.rank)
 }
 
 }   
